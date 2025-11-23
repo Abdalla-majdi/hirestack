@@ -2,15 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowDown } from "lucide-react";
 import heroVisual from "@/assets/hero-visual.png";
-
 export const HeroSection = () => {
   const scrollToAgents = () => {
     const agentsSection = document.getElementById("agents");
-    agentsSection?.scrollIntoView({ behavior: "smooth" });
+    agentsSection?.scrollIntoView({
+      behavior: "smooth"
+    });
   };
-
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-background" />
       
       <div className="container relative z-10 px-4 py-20 mx-auto">
@@ -36,11 +35,7 @@ export const HeroSection = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button 
-                size="lg" 
-                onClick={scrollToAgents}
-                className="text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-              >
+              <Button size="lg" onClick={scrollToAgents} className="text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                 Meet Your New Team
                 <ArrowDown className="ml-2 h-5 w-5 animate-bounce" />
               </Button>
@@ -50,11 +45,7 @@ export const HeroSection = () => {
           {/* Right Column - Visual */}
           <div className="relative animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
             <div className="relative">
-              <img 
-                src={heroVisual} 
-                alt="AI Agent Technology - WhatsApp and Document Processing"
-                className="w-full h-auto drop-shadow-2xl"
-              />
+              <img alt="AI Agent Technology - WhatsApp and Document Processing" className="w-full h-auto drop-shadow-2xl" src="/lovable-uploads/28565372-09ee-4ff0-99e2-e634d5042955.png" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
             </div>
           </div>
@@ -62,6 +53,5 @@ export const HeroSection = () => {
       </div>
       
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-    </section>
-  );
+    </section>;
 };

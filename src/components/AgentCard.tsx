@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Eye } from "lucide-react";
 
 interface AgentCardProps {
   name: string;
@@ -10,6 +11,7 @@ interface AgentCardProps {
   description: string;
   avatar: string;
   onHire: () => void;
+  onViewSample: () => void;
 }
 
 export const AgentCard = ({ 
@@ -19,7 +21,8 @@ export const AgentCard = ({
   industries, 
   description, 
   avatar,
-  onHire 
+  onHire,
+  onViewSample
 }: AgentCardProps) => {
   return (
     <Card className="group h-full flex flex-col transition-all duration-300 hover:shadow-xl border-border/50 overflow-hidden">
@@ -36,12 +39,17 @@ export const AgentCard = ({
             <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-4 border-background" />
           </div>
           
-          <div className="flex-1">
+          <div className="flex-1 space-y-2">
             <CardTitle className="text-2xl mb-1">{name}</CardTitle>
             <CardDescription className="text-base font-medium">{role}</CardDescription>
-            <Badge variant="secondary" className="mt-2">
-              {level}
-            </Badge>
+            <div className="flex items-center gap-2">
+              <Badge variant="secondary">
+                {level}
+              </Badge>
+              <Badge variant="outline" className="bg-primary/5 text-primary border-primary/20">
+                $150/mo
+              </Badge>
+            </div>
           </div>
         </div>
       </CardHeader>
@@ -62,13 +70,22 @@ export const AgentCard = ({
         </div>
       </CardContent>
       
-      <CardFooter className="relative">
+      <CardFooter className="relative flex-col gap-3">
         <Button 
           onClick={onHire}
           className="w-full transition-all duration-300 hover:scale-105"
           size="lg"
         >
           Hire {name}
+        </Button>
+        <Button 
+          onClick={onViewSample}
+          variant="outline"
+          className="w-full"
+          size="lg"
+        >
+          <Eye className="w-4 h-4 mr-2" />
+          View Work Sample
         </Button>
       </CardFooter>
     </Card>

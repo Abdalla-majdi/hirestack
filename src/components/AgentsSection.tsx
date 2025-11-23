@@ -1,17 +1,24 @@
 import { useState } from "react";
 import { AgentCard } from "./AgentCard";
 import { HireModal } from "./HireModal";
+import { WorkSampleModal } from "./WorkSampleModal";
 import adamAvatar from "@/assets/adam-avatar.png";
 import sarahAvatar from "@/assets/sarah-avatar.png";
 import omarAvatar from "@/assets/omar-avatar.png";
 
 export const AgentsSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSampleModalOpen, setIsSampleModalOpen] = useState(false);
   const [selectedAgent, setSelectedAgent] = useState("");
 
   const handleHire = (agentName: string) => {
     setSelectedAgent(agentName);
     setIsModalOpen(true);
+  };
+
+  const handleViewSample = (agentName: string) => {
+    setSelectedAgent(agentName);
+    setIsSampleModalOpen(true);
   };
 
   const agents = [
@@ -43,16 +50,17 @@ export const AgentsSection = () => {
 
   return (
     <>
-      <section id="agents" className="py-20 bg-muted/30">
+      <section id="agents" className="py-20 bg-background">
         <div className="container px-4 mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-              The Talent Pool
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Meet our specialized AI agents, ready to join your team today
-            </p>
-          </div>
+          <div className="max-w-6xl mx-auto space-y-12">
+            <div className="text-center space-y-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+                Meet Your Digital Workforce
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Each AI agent is pre-trained, industry-ready, and available for immediate hire.
+              </p>
+            </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {agents.map((agent) => (
@@ -60,8 +68,10 @@ export const AgentsSection = () => {
                 key={agent.name}
                 {...agent}
                 onHire={() => handleHire(agent.name)}
+                onViewSample={() => handleViewSample(agent.name)}
               />
             ))}
+          </div>
           </div>
         </div>
       </section>
@@ -69,6 +79,13 @@ export const AgentsSection = () => {
       <HireModal
         open={isModalOpen}
         onOpenChange={setIsModalOpen}
+        agentName={selectedAgent}
+        isCustomHire={false}
+      />
+      
+      <WorkSampleModal
+        open={isSampleModalOpen}
+        onOpenChange={setIsSampleModalOpen}
         agentName={selectedAgent}
       />
     </>

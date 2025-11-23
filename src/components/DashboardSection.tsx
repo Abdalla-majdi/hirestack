@@ -1,8 +1,6 @@
 import dashboardMockup from "@/assets/dashboard-mockup.png";
-
 export const DashboardSection = () => {
-  return (
-    <section className="py-20 bg-gradient-to-br from-muted/30 to-background">
+  return <section className="py-20 bg-gradient-to-br from-muted/30 to-background">
       <div className="container px-4 mx-auto">
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="text-center space-y-4">
@@ -17,11 +15,7 @@ export const DashboardSection = () => {
           <div className="relative group">
             {/* Glassmorphic container */}
             <div className="relative rounded-3xl overflow-hidden border border-border/50 shadow-2xl backdrop-blur-sm bg-card/50">
-              <img 
-                src={dashboardMockup} 
-                alt="HireStack Dashboard - Live Agent Monitoring"
-                className="w-full h-auto"
-              />
+              <img alt="HireStack Dashboard - Live Agent Monitoring" className="w-full h-auto" src="/lovable-uploads/592cbae5-17d8-4e40-b193-fe0bdf4c2ac4.png" />
               
               {/* Overlay gradient for depth */}
               <div className="absolute inset-0 bg-gradient-to-t from-background/10 via-transparent to-transparent pointer-events-none" />
@@ -47,6 +41,5 @@ export const DashboardSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };

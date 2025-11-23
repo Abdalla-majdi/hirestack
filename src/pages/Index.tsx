@@ -4,6 +4,7 @@ import { AgentsSection } from "@/components/AgentsSection";
 import { CustomHireSection } from "@/components/CustomHireSection";
 import { PromiseSection } from "@/components/PromiseSection";
 import { Footer } from "@/components/Footer";
+import { ChatBot } from "@/components/ChatBot";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
         <PromiseSection />
       </main>
       <Footer />
+      <ChatBot />
     </div>
   );
 };

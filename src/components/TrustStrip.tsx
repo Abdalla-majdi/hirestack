@@ -1,30 +1,47 @@
 import wevoLogo from "@/assets/wevo-logo.png";
 import businessBelArabyLogo from "@/assets/business-bel-araby-logo.jpg";
+
+const assurances = [
+  "Security-first deployment",
+  "Enterprise SLAs",
+  "Dedicated implementation support",
+];
+
 export const TrustStrip = () => {
-  return <section className="py-16 border-y border-border bg-muted/30">
-      <div className="container px-4 mx-auto">
-        <div className="max-w-6xl mx-auto text-center space-y-8">
-          <p className="text-sm uppercase tracking-wider text-muted-foreground font-semibold">
-            Trusted by forward-thinking market leaders
-          </p>
-          
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16">
-            {/* Wevo Logo */}
-            <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-              <img src={wevoLogo} alt="Wevo" className="h-12 md:h-16 w-auto object-contain" />
-            </div>
-            
-            {/* Business Bel Araby Logo */}
-            <div className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
-              <img src={businessBelArabyLogo} alt="Business Bel Araby" className="h-12 md:h-16 w-auto object-contain" />
-            </div>
-            
-            {/* Placeholder Generic Tech Companies */}
-            
-            
-            
-          </div>
+  return (
+    <section className="bg-white border-y border-black/[0.06] py-20">
+      <div className="max-w-[980px] mx-auto px-5 text-center">
+        <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#1D1D1F]/40 mb-10">
+          Trusted by operations leaders
+        </p>
+
+        {/* Client logos */}
+        <div className="flex flex-wrap items-center justify-center gap-12 mb-14">
+          <img
+            src={wevoLogo}
+            alt="Wevo"
+            className="h-9 w-auto object-contain opacity-40 grayscale hover:opacity-80 hover:grayscale-0 transition-all duration-300"
+          />
+          <img
+            src={businessBelArabyLogo}
+            alt="Business Bel Araby"
+            className="h-9 w-auto object-contain opacity-40 grayscale hover:opacity-80 hover:grayscale-0 transition-all duration-300"
+          />
+        </div>
+
+        {/* Assurance pills */}
+        <div className="flex flex-wrap justify-center gap-3">
+          {assurances.map((item) => (
+            <span
+              key={item}
+              className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] bg-[#F5F5F7] px-4 py-2 text-[13px] text-[#1D1D1F]/60"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+              {item}
+            </span>
+          ))}
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };

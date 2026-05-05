@@ -1,45 +1,54 @@
-import dashboardMockup from "@/assets/dashboard-mockup.png";
+const metrics = [
+  { value: "24/7", label: "Always online" },
+  { value: "100%", label: "Data ownership" },
+  { value: "Real-time", label: "Live updates" },
+];
+
 export const DashboardSection = () => {
-  return <section className="py-20 bg-gradient-to-br from-muted/30 to-background">
-      <div className="container px-4 mx-auto">
-        <div className="max-w-7xl mx-auto space-y-12">
-          <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-              Total Control. Zero Mystery.
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Monitor every conversation, track hours saved, and manage your AI agents from a single, powerful dashboard.
-            </p>
+  return (
+    <section className="bg-[#1D1D1F] py-32 overflow-hidden">
+      <div className="max-w-[980px] mx-auto px-5">
+        {/* Section header */}
+        <div className="text-center mb-20">
+          <p className="text-[17px] font-semibold text-[#2997FF] mb-5 tracking-tight">
+            Dashboard
+          </p>
+          <h2 className="text-[48px] md:text-[56px] font-bold tracking-[-0.035em] text-white leading-[1.07]">
+            Total control.
+            <br />
+            <span className="text-white/50">Zero mystery.</span>
+          </h2>
+          <p className="text-[19px] text-white/45 mt-5 max-w-[520px] mx-auto leading-[1.47]">
+            Monitor every conversation, track hours saved, and manage your AI
+            agents from one powerful dashboard.
+          </p>
+        </div>
+
+        {/* Full-width screenshot */}
+        <div className="relative group">
+          <div className="rounded-[20px] overflow-hidden border border-white/[0.07] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8)]">
+            <img
+              alt="HireStack Dashboard — Live Agent Monitoring"
+              className="w-full h-auto block"
+              src="/lovable-uploads/592cbae5-17d8-4e40-b193-fe0bdf4c2ac4.png"
+            />
           </div>
-          
-          <div className="relative group">
-            {/* Glassmorphic container */}
-            <div className="relative rounded-3xl overflow-hidden border border-border/50 shadow-2xl backdrop-blur-sm bg-card/50">
-              <img alt="HireStack Dashboard - Live Agent Monitoring" className="w-full h-auto" src="/lovable-uploads/592cbae5-17d8-4e40-b193-fe0bdf4c2ac4.png" />
-              
-              {/* Overlay gradient for depth */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/10 via-transparent to-transparent pointer-events-none" />
+          {/* Subtle glow */}
+          <div className="absolute -inset-10 bg-gradient-to-r from-blue-600/15 to-indigo-600/15 rounded-3xl blur-3xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+        </div>
+
+        {/* Metrics row */}
+        <div className="flex flex-col sm:flex-row justify-center gap-16 mt-20 pt-12 border-t border-white/[0.07]">
+          {metrics.map((m) => (
+            <div key={m.label} className="text-center">
+              <div className="text-[38px] font-bold text-white tracking-[-0.03em] leading-none">
+                {m.value}
+              </div>
+              <div className="text-[14px] text-white/40 mt-2">{m.label}</div>
             </div>
-            
-            {/* Decorative glow effect */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8 pt-8">
-            <div className="text-center space-y-2">
-              <div className="text-3xl md:text-4xl font-bold text-primary">24/7</div>
-              <p className="text-muted-foreground">Always Online</p>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="text-3xl md:text-4xl font-bold text-primary">100%</div>
-              <p className="text-muted-foreground">Data Ownership</p>
-            </div>
-            <div className="text-center space-y-2">
-              <div className="text-3xl md:text-4xl font-bold text-primary">Real-time</div>
-              <p className="text-muted-foreground">Live Updates</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };

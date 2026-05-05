@@ -1,48 +1,51 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { HireModal } from "./HireModal";
-import { Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const CustomHireSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
-      <section id="custom" className="py-20 relative overflow-hidden">
-        {/* Dark gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-foreground via-foreground/95 to-foreground" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent" />
-        
-        <div className="container px-4 mx-auto relative z-10">
-          <Card className="max-w-4xl mx-auto border-primary/30 shadow-2xl bg-card/50 backdrop-blur-sm">
-            <CardContent className="p-12 text-center space-y-6">
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent mb-4 shadow-lg">
-                <Sparkles className="w-10 h-10 text-white" />
-              </div>
-              
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                Need a different skill set?
-              </h2>
-              
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                We can build a custom AI agent tailored to your specific workflow and business needs. 
-                From specialized industry requirements to unique process automation.
-              </p>
-              
-              <Button 
-                size="lg"
-                variant="default"
-                onClick={() => setIsModalOpen(true)}
-                className="text-lg px-8 py-6 mt-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-              >
-                Book Strategy Call
-              </Button>
-            </CardContent>
-          </Card>
+      <section id="custom" className="bg-[#1D1D1F] py-32">
+        <div className="max-w-[720px] mx-auto px-5 text-center">
+          <p className="text-[17px] font-semibold text-[#2997FF] mb-5 tracking-tight">
+            Custom solutions
+          </p>
+
+          <h2 className="text-[48px] md:text-[56px] font-bold tracking-[-0.035em] text-white leading-[1.07] mb-6">
+            Need a different
+            <br />
+            skill set?
+          </h2>
+
+          <p className="text-[19px] text-white/45 leading-[1.47] max-w-[480px] mx-auto mb-12">
+            We build custom AI agents tailored to your specific workflows —
+            from specialized industry requirements to unique process automation.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button
+              size="lg"
+              onClick={() => setIsModalOpen(true)}
+              className="rounded-full px-8 text-[17px] h-[50px] font-medium bg-white text-[#1D1D1F] hover:bg-white/90 transition-colors"
+            >
+              Book a strategy call
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+            <Button
+              size="lg"
+              variant="ghost"
+              asChild
+              className="text-white/55 hover:text-white hover:bg-transparent text-[17px] h-[50px] px-6 font-medium transition-colors"
+            >
+              <a href="#agents">View agent catalog ›</a>
+            </Button>
+          </div>
         </div>
       </section>
-      
+
       <HireModal
         open={isModalOpen}
         onOpenChange={setIsModalOpen}

@@ -1,34 +1,45 @@
 import wevoLogo from "@/assets/wevo-logo.png";
 import businessBelArabyLogo from "@/assets/business-bel-araby-logo.jpg";
 
+const assurances = [
+  "Security-first deployment",
+  "Enterprise SLAs",
+  "Dedicated implementation support",
+];
+
 export const TrustStrip = () => {
-  const assurances = ["Security-first deployment", "Enterprise SLAs", "Dedicated implementation support"];
-
   return (
-    <section className="border-y border-border bg-muted/30 py-14">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
-          <div className="space-y-5 text-center lg:text-left">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-              Trusted by operations leaders
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-8 lg:justify-start">
-              <img src={wevoLogo} alt="Wevo" className="h-11 w-auto object-contain opacity-80 grayscale transition-all hover:opacity-100 hover:grayscale-0" />
-              <img
-                src={businessBelArabyLogo}
-                alt="Business Bel Araby"
-                className="h-11 w-auto object-contain opacity-80 grayscale transition-all hover:opacity-100 hover:grayscale-0"
-              />
-            </div>
-          </div>
+    <section className="bg-white border-y border-black/[0.06] py-20">
+      <div className="max-w-[980px] mx-auto px-5 text-center">
+        <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#1D1D1F]/40 mb-10">
+          Trusted by operations leaders
+        </p>
 
-          <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
-            {assurances.map((item) => (
-              <div key={item} className="rounded-lg border border-border/70 bg-background/80 px-4 py-3 text-sm text-foreground shadow-sm">
-                {item}
-              </div>
-            ))}
-          </div>
+        {/* Client logos */}
+        <div className="flex flex-wrap items-center justify-center gap-12 mb-14">
+          <img
+            src={wevoLogo}
+            alt="Wevo"
+            className="h-9 w-auto object-contain opacity-40 grayscale hover:opacity-80 hover:grayscale-0 transition-all duration-300"
+          />
+          <img
+            src={businessBelArabyLogo}
+            alt="Business Bel Araby"
+            className="h-9 w-auto object-contain opacity-40 grayscale hover:opacity-80 hover:grayscale-0 transition-all duration-300"
+          />
+        </div>
+
+        {/* Assurance pills */}
+        <div className="flex flex-wrap justify-center gap-3">
+          {assurances.map((item) => (
+            <span
+              key={item}
+              className="inline-flex items-center gap-2 rounded-full border border-black/[0.08] bg-[#F5F5F7] px-4 py-2 text-[13px] text-[#1D1D1F]/60"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+              {item}
+            </span>
+          ))}
         </div>
       </div>
     </section>

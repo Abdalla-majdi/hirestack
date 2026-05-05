@@ -1,59 +1,76 @@
 import { UserCheck, Link2, LineChart } from "lucide-react";
 
+const steps = [
+  {
+    icon: UserCheck,
+    number: "01",
+    title: "Discovery & fit",
+    description:
+      "We map your workflows, compliance requirements, and success KPIs to the right AI agent profile.",
+  },
+  {
+    icon: Link2,
+    number: "02",
+    title: "Secure integration",
+    description:
+      "Our team connects your systems and knowledge sources with role-based access and clear governance.",
+  },
+  {
+    icon: LineChart,
+    number: "03",
+    title: "Launch & optimize",
+    description:
+      "Track outcomes in real time and continuously improve prompts, logic, and automations.",
+  },
+];
+
 export const ProcessSection = () => {
-  const steps = [
-    {
-      icon: UserCheck,
-      title: "Discovery & fit",
-      description: "We map your workflows, compliance requirements, and success KPIs to the right AI agent profile.",
-    },
-    {
-      icon: Link2,
-      title: "Secure integration",
-      description: "Our team connects your systems and knowledge sources with role-based access and clear governance.",
-    },
-    {
-      icon: LineChart,
-      title: "Launch & optimize",
-      description: "Track outcomes in real time and continuously improve prompts, logic, and automations.",
-    },
-  ];
-
   return (
-    <section id="process" className="bg-background py-20">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-6xl space-y-16">
-          <div className="space-y-4 text-center">
-            <h2 className="text-4xl font-bold text-foreground md:text-5xl">A deployment model enterprise teams trust</h2>
-            <p className="mx-auto max-w-3xl text-lg text-muted-foreground md:text-xl">
-              Structured onboarding, transparent milestones, and measurable business impact from day one.
-            </p>
-          </div>
+    <section id="process" className="bg-[#F5F5F7] py-32">
+      <div className="max-w-[980px] mx-auto px-5">
+        {/* Section header */}
+        <div className="text-center mb-20">
+          <p className="text-[17px] font-semibold text-primary mb-5 tracking-tight">
+            How it works
+          </p>
+          <h2 className="text-[48px] md:text-[56px] font-bold tracking-[-0.035em] text-[#1D1D1F] leading-[1.07]">
+            A deployment model
+            <br />
+            enterprise teams trust.
+          </h2>
+          <p className="text-[19px] text-[#1D1D1F]/55 mt-5 max-w-[520px] mx-auto leading-[1.47]">
+            Structured onboarding, transparent milestones, and measurable business impact from day one.
+          </p>
+        </div>
 
-          <div className="grid gap-8 md:grid-cols-3 lg:gap-12">
-            {steps.map((step, index) => {
-              const Icon = step.icon;
-              return (
-                <div key={step.title} className="group relative">
-                  {index < steps.length - 1 && (
-                    <div className="absolute left-[60%] top-16 hidden h-0.5 w-full bg-gradient-to-r from-primary/40 to-transparent md:block" />
-                  )}
-
-                  <div className="relative space-y-4 rounded-2xl border border-border bg-card p-8 transition-all duration-300 hover:border-primary/40 hover:shadow-lg">
-                    <div className="flex items-center gap-4">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
-                        <Icon className="h-7 w-7" />
-                      </div>
-                      <span className="text-4xl font-bold text-muted-foreground/25">{(index + 1).toString().padStart(2, "0")}</span>
-                    </div>
-
-                    <h3 className="text-2xl font-semibold text-foreground">{step.title}</h3>
-                    <p className="leading-relaxed text-muted-foreground">{step.description}</p>
+        {/* Steps grid */}
+        <div className="grid gap-5 md:grid-cols-3">
+          {steps.map((step) => {
+            const Icon = step.icon;
+            return (
+              <div
+                key={step.title}
+                className="bg-white rounded-[20px] p-8 border border-black/[0.06] shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col"
+              >
+                {/* Icon + number row */}
+                <div className="flex items-start justify-between mb-8">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
+                    <Icon className="h-6 w-6 text-primary" />
                   </div>
+                  <span className="text-[48px] font-bold text-[#1D1D1F]/[0.05] leading-none select-none">
+                    {step.number}
+                  </span>
                 </div>
-              );
-            })}
-          </div>
+
+                <h3 className="text-[20px] font-semibold text-[#1D1D1F] mb-3 tracking-[-0.02em]">
+                  {step.title}
+                </h3>
+                <p className="text-[15px] leading-[1.6] text-[#1D1D1F]/55 flex-1">
+                  {step.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
